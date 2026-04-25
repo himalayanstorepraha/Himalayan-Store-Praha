@@ -1,3 +1,471 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+
+```
+<!-- Deep twilight sky -->
+<linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#010714"/>
+  <stop offset="18%"  style="stop-color:#05163a"/>
+  <stop offset="38%"  style="stop-color:#0d2d6b"/>
+  <stop offset="58%"  style="stop-color:#1a4a8a"/>
+  <stop offset="74%"  style="stop-color:#c4622d"/>
+  <stop offset="86%"  style="stop-color:#e8902a"/>
+  <stop offset="94%"  style="stop-color:#f5c842"/>
+  <stop offset="100%" style="stop-color:#fde9a0"/>
+</linearGradient>
+
+<!-- Snow gradients -->
+<linearGradient id="snowMain" x1="0%" y1="0%" x2="20%" y2="100%">
+  <stop offset="0%"   style="stop-color:#ffffff"/>
+  <stop offset="35%"  style="stop-color:#e8f4ff"/>
+  <stop offset="70%"  style="stop-color:#b8d4f0"/>
+  <stop offset="100%" style="stop-color:#8ab8e0;stop-opacity:0.7"/>
+</linearGradient>
+
+<linearGradient id="snowShadow" x1="100%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#cce0f5"/>
+  <stop offset="50%"  style="stop-color:#90b8d8"/>
+  <stop offset="100%" style="stop-color:#5a8ab0;stop-opacity:0.6"/>
+</linearGradient>
+
+<!-- Mountain layers -->
+<linearGradient id="mtn1" x1="10%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#3a5a8c"/>
+  <stop offset="50%"  style="stop-color:#1e3a6a"/>
+  <stop offset="100%" style="stop-color:#0d1e3a"/>
+</linearGradient>
+
+<linearGradient id="mtn2" x1="0%" y1="0%" x2="10%" y2="100%">
+  <stop offset="0%"   style="stop-color:#2a4a6a"/>
+  <stop offset="100%" style="stop-color:#0a1828"/>
+</linearGradient>
+
+<linearGradient id="mtnGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#2e5e30"/>
+  <stop offset="40%"  style="stop-color:#1e3e20"/>
+  <stop offset="100%" style="stop-color:#0a180a"/>
+</linearGradient>
+
+<linearGradient id="mtnDark" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#162a16"/>
+  <stop offset="100%" style="stop-color:#050e05"/>
+</linearGradient>
+
+<linearGradient id="mtnFront" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#0e1e0e"/>
+  <stop offset="100%" style="stop-color:#020602"/>
+</linearGradient>
+
+<!-- Sun glow -->
+<radialGradient id="sunCore" cx="50%" cy="50%" r="50%">
+  <stop offset="0%"   style="stop-color:#fffde0;stop-opacity:1"/>
+  <stop offset="30%"  style="stop-color:#ffe080;stop-opacity:0.9"/>
+  <stop offset="70%"  style="stop-color:#f4a020;stop-opacity:0.4"/>
+  <stop offset="100%" style="stop-color:#e87010;stop-opacity:0"/>
+</radialGradient>
+
+<!-- Moon glow -->
+<radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+  <stop offset="0%"   style="stop-color:#fffff0;stop-opacity:0.9"/>
+  <stop offset="50%"  style="stop-color:#e8f4ff;stop-opacity:0.4"/>
+  <stop offset="100%" style="stop-color:#c0d8f0;stop-opacity:0"/>
+</radialGradient>
+
+<!-- Aurora -->
+<linearGradient id="aurora1" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%"   style="stop-color:#00ff88;stop-opacity:0"/>
+  <stop offset="40%"  style="stop-color:#00e8a0;stop-opacity:0.15"/>
+  <stop offset="70%"  style="stop-color:#4040ff;stop-opacity:0.1"/>
+  <stop offset="100%" style="stop-color:#8800ff;stop-opacity:0"/>
+</linearGradient>
+
+<!-- Mist -->
+<linearGradient id="mistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#c8ddf0;stop-opacity:0.2"/>
+  <stop offset="100%" style="stop-color:#c8ddf0;stop-opacity:0"/>
+</linearGradient>
+
+<!-- River reflection -->
+<linearGradient id="riverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%"   style="stop-color:#4a7aa8;stop-opacity:0.8"/>
+  <stop offset="50%"  style="stop-color:#2a5a88;stop-opacity:0.6"/>
+  <stop offset="100%" style="stop-color:#1a3a58;stop-opacity:0.4"/>
+</linearGradient>
+
+<!-- Glow filter -->
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="3" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+<filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+  <feGaussianBlur stdDeviation="12" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+<filter id="mistFilter">
+  <feGaussianBlur stdDeviation="18"/>
+</filter>
+
+<filter id="softBlur">
+  <feGaussianBlur stdDeviation="6"/>
+</filter>
+
+<filter id="starGlow">
+  <feGaussianBlur stdDeviation="1.2" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+```
+
+  </defs>
+
+  <!-- ═══ SKY ═══ -->
+
+  <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+
+  <!-- Aurora borealis subtle -->
+
+  <ellipse cx="600" cy="200" rx="700" ry="180" fill="url(#aurora1)" opacity="0.5" transform="rotate(-8,600,200)"/>
+  <ellipse cx="1400" cy="160" rx="500" ry="130" fill="url(#aurora1)" opacity="0.3" transform="rotate(5,1400,160)"/>
+
+  <!-- ═══ MOON ═══ -->
+
+  <circle cx="260" cy="130" r="90" fill="url(#moonGlow)" opacity="0.7"/>
+  <circle cx="260" cy="130" r="42" fill="#fffff8" opacity="0.95" filter="url(#glow)"/>
+  <circle cx="260" cy="130" r="38" fill="#fefef0"/>
+  <!-- Moon craters -->
+  <circle cx="248" cy="122" r="5" fill="#e8e8d8" opacity="0.5"/>
+  <circle cx="268" cy="138" r="3.5" fill="#e0e0cc" opacity="0.4"/>
+  <circle cx="255" cy="142" r="4" fill="#e4e4d0" opacity="0.35"/>
+  <circle cx="275" cy="118" r="6" fill="#dcdcca" opacity="0.4"/>
+
+  <!-- ═══ STARS — many layers ═══ -->
+
+  <g filter="url(#starGlow)">
+    <!-- Bright stars -->
+    <circle cx="80"  cy="45"  r="2"   fill="white" opacity="0.95"/>
+    <circle cx="420" cy="28"  r="2.2" fill="#ffe8c0" opacity="0.9"/>
+    <circle cx="650" cy="55"  r="1.8" fill="white" opacity="0.9"/>
+    <circle cx="880" cy="32"  r="2.5" fill="#c8e0ff" opacity="0.95"/>
+    <circle cx="1120" cy="48" r="1.8" fill="white" opacity="0.9"/>
+    <circle cx="1380" cy="22" r="2.2" fill="#ffe8c0" opacity="0.9"/>
+    <circle cx="1600" cy="60" r="2"   fill="white" opacity="0.95"/>
+    <circle cx="1820" cy="35" r="2.5" fill="#c8e0ff" opacity="0.9"/>
+    <!-- Medium stars -->
+    <circle cx="150"  cy="90"  r="1.4" fill="white" opacity="0.8"/>
+    <circle cx="320"  cy="70"  r="1.2" fill="white" opacity="0.75"/>
+    <circle cx="510"  cy="95"  r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="740"  cy="75"  r="1.3" fill="white" opacity="0.78"/>
+    <circle cx="970"  cy="88"  r="1.4" fill="white" opacity="0.8"/>
+    <circle cx="1200" cy="65"  r="1.2" fill="white" opacity="0.75"/>
+    <circle cx="1460" cy="82"  r="1.5" fill="white" opacity="0.8"/>
+    <circle cx="1700" cy="92"  r="1.3" fill="white" opacity="0.78"/>
+    <circle cx="1880" cy="78"  r="1.4" fill="white" opacity="0.8"/>
+    <!-- Small stars scattered -->
+    <circle cx="55"   cy="160" r="1"   fill="white" opacity="0.6"/>
+    <circle cx="195"  cy="140" r="0.9" fill="white" opacity="0.55"/>
+    <circle cx="360"  cy="170" r="1"   fill="white" opacity="0.6"/>
+    <circle cx="580"  cy="148" r="1.1" fill="white" opacity="0.65"/>
+    <circle cx="770"  cy="165" r="0.9" fill="white" opacity="0.55"/>
+    <circle cx="1010" cy="145" r="1"   fill="white" opacity="0.6"/>
+    <circle cx="1250" cy="175" r="1.1" fill="white" opacity="0.65"/>
+    <circle cx="1490" cy="150" r="0.9" fill="white" opacity="0.55"/>
+    <circle cx="1740" cy="168" r="1"   fill="white" opacity="0.6"/>
+    <circle cx="1900" cy="143" r="1.1" fill="white" opacity="0.65"/>
+    <!-- Tiny faint stars -->
+    <circle cx="110"  cy="200" r="0.7" fill="white" opacity="0.4"/>
+    <circle cx="290"  cy="220" r="0.8" fill="white" opacity="0.45"/>
+    <circle cx="470"  cy="205" r="0.7" fill="white" opacity="0.4"/>
+    <circle cx="690"  cy="230" r="0.8" fill="white" opacity="0.45"/>
+    <circle cx="900"  cy="210" r="0.7" fill="white" opacity="0.4"/>
+    <circle cx="1130" cy="235" r="0.8" fill="white" opacity="0.45"/>
+    <circle cx="1340" cy="208" r="0.7" fill="white" opacity="0.4"/>
+    <circle cx="1560" cy="225" r="0.8" fill="white" opacity="0.45"/>
+    <circle cx="1780" cy="212" r="0.7" fill="white" opacity="0.4"/>
+    <!-- Milky way hint -->
+    <circle cx="700"  cy="120" r="0.6" fill="white" opacity="0.3"/>
+    <circle cx="730"  cy="105" r="0.5" fill="white" opacity="0.25"/>
+    <circle cx="760"  cy="118" r="0.7" fill="white" opacity="0.3"/>
+    <circle cx="800"  cy="108" r="0.5" fill="white" opacity="0.25"/>
+    <circle cx="840"  cy="122" r="0.6" fill="white" opacity="0.3"/>
+    <circle cx="870"  cy="110" r="0.5" fill="white" opacity="0.28"/>
+    <circle cx="910"  cy="125" r="0.6" fill="white" opacity="0.25"/>
+    <circle cx="940"  cy="112" r="0.7" fill="white" opacity="0.3"/>
+    <circle cx="980"  cy="128" r="0.5" fill="white" opacity="0.25"/>
+    <circle cx="1010" cy="115" r="0.6" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- ═══ SUN rising at horizon ═══ -->
+
+  <ellipse cx="960" cy="670" rx="380" ry="220" fill="url(#sunCore)" opacity="0.55"/>
+  <ellipse cx="960" cy="670" rx="220" ry="120" fill="#ffe060" opacity="0.3" filter="url(#softBlur)"/>
+  <circle cx="960" cy="645" r="52" fill="#fff8e0" opacity="0.85" filter="url(#softGlow)"/>
+  <circle cx="960" cy="645" r="40" fill="#fffce8" opacity="0.95"/>
+  <circle cx="960" cy="645" r="32" fill="#ffffff"/>
+
+  <!-- Sun rays -->
+
+  <g stroke="#ffe080" stroke-width="1.5" opacity="0.25">
+    <line x1="960" y1="590" x2="960" y2="550"/>
+    <line x1="1000" y1="598" x2="1025" y2="565"/>
+    <line x1="1030" y1="620" x2="1065" y2="600"/>
+    <line x1="1040" y1="648" x2="1080" y2="640"/>
+    <line x1="920"  y1="598" x2="895"  y2="565"/>
+    <line x1="890"  y1="620" x2="855"  y2="600"/>
+    <line x1="880"  y1="648" x2="840"  y2="640"/>
+  </g>
+
+  <!-- ═══ LAYER 1: Very distant hazy mountains ═══ -->
+
+<polygon points="
+0,620 80,520 180,560 280,490 400,540 520,470 640,510 
+760,450 880,490 1000,440 1120,480 1240,430 1360,470 
+1480,420 1600,460 1720,410 1840,450 1920,430 1920,700 0,700"
+fill="#2a4a7a" opacity="0.45"/>
+
+  <!-- Snow on layer 1 -->
+
+  <g opacity="0.6" fill="url(#snowMain)">
+    <polygon points="280,490 300,505 325,492 310,484 295,498"/>
+    <polygon points="520,470 545,487 572,473 555,464 535,480"/>
+    <polygon points="760,450 788,468 818,452 800,442 778,460"/>
+    <polygon points="1000,440 1028,458 1058,443 1040,433 1018,450"/>
+    <polygon points="1240,430 1268,449 1298,433 1280,423 1258,441"/>
+    <polygon points="1480,420 1508,439 1536,424 1518,414 1496,432"/>
+    <polygon points="1720,410 1748,428 1776,414 1758,404 1736,421"/>
+  </g>
+
+  <!-- ═══ LAYER 2: Main Himalayan range ═══ -->
+
+  <!-- Everest group - center -->
+
+  <!-- Everest main peak -->
+
+<polygon points="
+860,580 890,520 920,490 940,440 960,380 978,350 
+998,315 1015,280 1028,240 1038,210 1048,185 
+1058,210 1068,242 1082,280 1098,318 1115,355 
+1132,388 1148,420 1162,455 1178,490 1195,525 
+1215,560 1235,585"
+fill="url(#mtn1)"/>
+
+  <!-- Everest snow — detailed -->
+
+<polygon points="
+1048,185 1042,205 1035,225 1025,248 1015,268 
+1005,288 995,308 988,325 978,342 
+1010,328 1025,310 1040,292 1052,275 
+1062,255 1072,235 1080,215 1072,200 1062,192"
+fill="url(#snowMain)" opacity="0.98"/>
+
+  <!-- Shadow side snow -->
+
+<polygon points="
+1048,185 1042,205 1035,225 1025,248 1015,268 
+1005,288 995,308 988,325 975,340 962,358 
+958,348 965,332 972,315 982,298 992,280 
+1002,262 1012,242 1022,222 1032,202 1040,188"
+fill="url(#snowShadow)" opacity="0.7"/>
+
+  <!-- Lhotse (right of Everest) -->
+
+<polygon points="
+1150,580 1175,530 1200,490 1222,455 1242,420 
+1258,388 1272,355 1282,322 1290,295 1298,270 
+1306,248 1312,228 1318,255 1325,282 1332,310 
+1340,340 1350,372 1362,405 1375,438 1390,470 
+1408,505 1428,538 1450,568 1475,588"
+fill="url(#mtn2)"/>
+
+  <!-- Lhotse snow -->
+
+<polygon points="
+1312,228 1306,248 1298,270 1290,295 1282,322 
+1295,308 1308,292 1320,272 1328,252 1322,236"
+fill="url(#snowMain)" opacity="0.95"/>
+
+  <!-- Nuptse (left of Everest) -->
+
+<polygon points="
+680,585 700,545 722,508 745,472 768,438 
+790,405 810,375 826,348 840,322 850,300 
+858,280 864,262 870,242 876,222 882,205 
+888,222 894,242 900,265 906,290 912,318 
+920,348 930,380 942,412 956,445 968,476 
+982,506 998,534 1015,560 1032,582"
+fill="url(#mtn1)" opacity="0.9"/>
+
+  <!-- Nuptse snow -->
+
+<polygon points="
+882,205 876,222 870,242 864,262 858,280 
+850,300 840,322 
+848,316 858,298 868,278 876,258 884,238 
+890,220 886,208"
+fill="url(#snowMain)" opacity="0.92"/>
+
+  <!-- Makalu (far right) -->
+
+<polygon points="
+1500,590 1525,548 1548,508 1570,468 1590,430 
+1608,395 1622,362 1633,332 1641,305 1648,282 
+1654,260 1659,240 1663,222 1668,205 1672,188 
+1676,205 1680,224 1685,245 1690,268 1696,293 
+1703,320 1711,350 1720,382 1731,415 1744,448 
+1758,480 1774,512 1792,542 1812,568 1835,588"
+fill="url(#mtn2)" opacity="0.85"/>
+
+  <!-- Makalu snow -->
+
+<polygon points="
+1672,188 1668,205 1663,222 1659,240 1654,260 
+1660,252 1667,232 1673,212 1678,196"
+fill="url(#snowMain)" opacity="0.93"/>
+
+  <!-- Cho Oyu (far left) -->
+
+<polygon points="
+0,580 25,545 55,508 88,472 122,438 
+158,405 192,375 222,348 248,322 268,300 
+285,280 298,262 308,245 315,228 320,212 
+325,195 330,212 335,230 341,250 348,272 
+357,298 368,328 382,360 398,394 416,428 
+436,462 458,495 482,526 508,554 536,578 
+565,592"
+fill="url(#mtn1)" opacity="0.88"/>
+
+  <!-- Cho Oyu snow -->
+
+<polygon points="
+325,195 320,212 315,228 308,245 298,262 285,280 
+292,272 302,255 312,238 320,220 327,203"
+fill="url(#snowMain)" opacity="0.92"/>
+
+  <!-- ═══ LAYER 3: Mid-range forested mountains ═══ -->
+
+<polygon points="
+0,800 100,680 220,720 360,650 500,700 
+640,630 780,680 900,620 1020,665 
+1140,610 1260,655 1380,600 1500,645 
+1620,590 1750,635 1870,600 1920,615 
+1920,900 0,900"
+fill="url(#mtnGreen)"/>
+
+  <!-- ═══ LAYER 4: Near dark mountains ═══ -->
+
+<polygon points="
+0,900 120,780 260,830 420,750 580,810 
+720,740 860,790 980,730 1100,775 
+1220,715 1360,765 1480,705 1620,760 
+1760,700 1880,748 1920,730 
+1920,1000 0,1000"
+fill="url(#mtnDark)"/>
+
+  <!-- ═══ LAYER 5: Foreground silhouette ═══ -->
+
+<polygon points="
+0,980 80,900 180,940 300,870 440,920 
+560,858 680,900 800,845 920,885 
+1040,832 1160,872 1280,820 1400,865 
+1520,812 1640,858 1760,808 1880,852 1920,838 
+1920,1080 0,1080"
+fill="url(#mtnFront)"/>
+
+  <!-- ═══ PINE TREE SILHOUETTES ═══ -->
+
+  <g fill="#060e06">
+    <!-- Left cluster -->
+    <polygon points="28,980 38,935 48,980"/>
+    <polygon points="52,975 64,926 76,975"/>
+    <polygon points="82,978 95,929 108,978"/>
+    <polygon points="115,972 130,920 145,972"/>
+    <polygon points="152,976 168,923 184,976"/>
+    <polygon points="192,970 210,915 228,970"/>
+    <polygon points="238,974 258,918 278,974"/>
+    <polygon points="290,968 312,910 334,968"/>
+    <polygon points="346,972 370,915 394,972"/>
+    <!-- Right cluster -->
+    <polygon points="1530,968 1550,912 1570,968"/>
+    <polygon points="1578,972 1600,914 1622,972"/>
+    <polygon points="1632,966 1656,907 1680,966"/>
+    <polygon points="1692,970 1718,910 1744,970"/>
+    <polygon points="1756,964 1784,903 1812,964"/>
+    <polygon points="1824,968 1854,906 1884,968"/>
+    <polygon points="1892,972 1906,928 1920,972"/>
+    <!-- Mid sparse trees -->
+    <polygon points="680,968 694,925 708,968"/>
+    <polygon points="716,964 732,918 748,964"/>
+    <polygon points="1180,962 1196,916 1212,962"/>
+    <polygon points="1220,966 1238,920 1256,966"/>
+  </g>
+
+  <!-- ═══ PRAYER FLAGS ═══ -->
+
+  <!-- Left rope -->
+
+  <path d="M 80,865 Q 280,840 480,858" stroke="#8B4513" stroke-width="1.8" fill="none" opacity="0.7"/>
+  <line x1="80"  y1="865" x2="80"  y2="915" stroke="#6B3410" stroke-width="2.5" opacity="0.6"/>
+  <line x1="480" y1="858" x2="480" y2="908" stroke="#6B3410" stroke-width="2.5" opacity="0.6"/>
+  <!-- Flag triangles left -->
+  <polygon points="100,865 128,868 114,885" fill="#cc0000" opacity="0.85"/>
+  <polygon points="138,864 166,866 152,883" fill="#f5f5f5" opacity="0.7"/>
+  <polygon points="176,862 204,865 190,882" fill="#1a44cc" opacity="0.85"/>
+  <polygon points="214,861 242,864 228,881" fill="#228B22" opacity="0.85"/>
+  <polygon points="252,861 280,863 266,880" fill="#ccaa00" opacity="0.85"/>
+  <polygon points="290,861 318,864 304,881" fill="#cc0000" opacity="0.85"/>
+  <polygon points="328,862 356,864 342,881" fill="#f5f5f5" opacity="0.7"/>
+  <polygon points="366,863 394,865 380,882" fill="#1a44cc" opacity="0.85"/>
+  <polygon points="404,864 432,866 418,883" fill="#228B22" opacity="0.85"/>
+  <polygon points="442,865 466,867 454,884" fill="#ccaa00" opacity="0.85"/>
+
+  <!-- Right rope -->
+
+  <path d="M 1440,852 Q 1640,835 1840,848" stroke="#8B4513" stroke-width="1.8" fill="none" opacity="0.7"/>
+  <line x1="1440" y1="852" x2="1440" y2="902" stroke="#6B3410" stroke-width="2.5" opacity="0.6"/>
+  <line x1="1840" y1="848" x2="1840" y2="898" stroke="#6B3410" stroke-width="2.5" opacity="0.6"/>
+  <!-- Flag triangles right -->
+  <polygon points="1460,852 1488,854 1474,871" fill="#cc0000" opacity="0.85"/>
+  <polygon points="1498,851 1526,853 1512,870" fill="#f5f5f5" opacity="0.7"/>
+  <polygon points="1536,850 1564,852 1550,869" fill="#1a44cc" opacity="0.85"/>
+  <polygon points="1574,849 1602,851 1588,868" fill="#228B22" opacity="0.85"/>
+  <polygon points="1612,849 1640,851 1626,868" fill="#ccaa00" opacity="0.85"/>
+  <polygon points="1650,849 1678,851 1664,868" fill="#cc0000" opacity="0.85"/>
+  <polygon points="1688,849 1716,851 1702,868" fill="#f5f5f5" opacity="0.7"/>
+  <polygon points="1726,849 1754,851 1740,868" fill="#1a44cc" opacity="0.85"/>
+  <polygon points="1764,849 1792,851 1778,868" fill="#228B22" opacity="0.85"/>
+  <polygon points="1802,849 1828,851 1815,868" fill="#ccaa00" opacity="0.85"/>
+
+  <!-- ═══ RIVER / GLACIER reflection ═══ -->
+
+  <ellipse cx="960" cy="1020" rx="320" ry="38" fill="url(#riverGrad)" opacity="0.5"/>
+  <ellipse cx="960" cy="1020" rx="200" ry="22" fill="#6a9ac8" opacity="0.25"/>
+  <!-- River shimmer lines -->
+  <line x1="820" y1="1012" x2="900" y2="1015" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="1020" y1="1018" x2="1100" y2="1014" stroke="white" stroke-width="1" opacity="0.2"/>
+
+  <!-- ═══ ATMOSPHERIC MIST ═══ -->
+
+  <ellipse cx="480"  cy="790" rx="380" ry="55" fill="white" opacity="0.06" filter="url(#mistFilter)"/>
+  <ellipse cx="1440" cy="775" rx="340" ry="48" fill="white" opacity="0.06" filter="url(#mistFilter)"/>
+  <ellipse cx="960"  cy="810" rx="500" ry="60" fill="white" opacity="0.05" filter="url(#mistFilter)"/>
+
+  <!-- Horizon haze -->
+
+  <rect x="0" y="610" width="1920" height="80" fill="white" opacity="0.04" filter="url(#mistFilter)"/>
+
+  <!-- ═══ SUBTLE VIGNETTE ═══ -->
+
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%"   style="stop-color:black;stop-opacity:0"/>
+    <stop offset="100%" style="stop-color:black;stop-opacity:0.45"/>
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+
+  <!-- Final subtle dark overlay for text readability -->
+
+  <rect width="1920" height="1080" fill="rgba(2,8,20,0.12)"/>
+
+</svg>
 <!DOCTYPE html>
 
 <html lang="en">
