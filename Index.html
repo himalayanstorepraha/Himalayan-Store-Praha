@@ -14,13 +14,25 @@
       text-align: center;
     }
     header h1 { font-size: 2em; }
-    header p { font-size: 1em; margin-top: 5px; }
+    header p { margin-top: 5px; }
+    .lang-btn {
+      margin-top: 10px;
+      padding: 8px 20px;
+      background: white;
+      color: #8B0000;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95em;
+    }
     nav {
       background: #333;
       display: flex;
       justify-content: center;
       gap: 20px;
       padding: 12px;
+      flex-wrap: wrap;
     }
     nav a { color: white; text-decoration: none; font-weight: bold; }
     .hero {
@@ -47,7 +59,13 @@
       text-align: center;
     }
     .card h3 { color: #8B0000; margin-bottom: 8px; }
-    .card p { font-size: 0.95em; }
+    .about {
+      padding: 30px 20px;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    .about h2 { color: #8B0000; margin-bottom: 10px; }
+    .about p { max-width: 600px; margin: 0 auto; }
     .contact {
       background: #8B0000;
       color: white;
@@ -55,7 +73,7 @@
       padding: 30px 20px;
     }
     .contact h2 { margin-bottom: 15px; }
-    .contact p { margin: 6px 0; font-size: 1em; }
+    .contact p { margin: 6px 0; }
     footer {
       background: #222;
       color: #aaa;
@@ -69,49 +87,47 @@
 
 <header>
   <h1>🛍️ Rayamajhi Shop Praha</h1>
-  <p>नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+  <p class="sub">नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+  <button class="lang-btn" onclick="toggleLang()">🌐 Česky / English</button>
 </header>
 
 <nav>
-  <a href="#products">Products</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+  <a href="#products" class="nav-products">Products</a>
+  <a href="#about" class="nav-about">About</a>
+  <a href="#contact" class="nav-contact">Contact</a>
 </nav>
 
 <div class="hero">
-  <h2>Welcome to Rayamajhi Shop!</h2>
-  <p>Nepali & Asian products, general merchandise, and community service in Praha.</p>
+  <h2 class="hero-title">Welcome to Rayamajhi Shop!</h2>
+  <p class="hero-text">Nepali & Asian products, general merchandise, and community service in Praha.</p>
 </div>
 
 <div class="products" id="products">
   <div class="card">
-    <h3>🍜 Nepali & Asian Food</h3>
-    <p>Spices, noodles, rice, lentils, and more from Nepal and Asia.</p>
+    <h3>🍜 <span class="p1-title">Nepali & Asian Food</span></h3>
+    <p class="p1-text">Spices, noodles, rice, lentils, and more from Nepal and Asia.</p>
   </div>
   <div class="card">
-    <h3>🧴 Daily Essentials</h3>
-    <p>Household goods, personal care, and everyday items.</p>
+    <h3>🧴 <span class="p2-title">Daily Essentials</span></h3>
+    <p class="p2-text">Household goods, personal care, and everyday items.</p>
   </div>
   <div class="card">
-    <h3>📦 Import & Reselling</h3>
-    <p>Special products imported and resold for the community.</p>
+    <h3>📦 <span class="p3-title">Import & Reselling</span></h3>
+    <p class="p3-text">Special products imported and resold for the community.</p>
   </div>
   <div class="card">
-    <h3>🤝 Community Service</h3>
-    <p>Helping the Nepali community in Czech Republic.</p>
+    <h3>🤝 <span class="p4-title">Community Service</span></h3>
+    <p class="p4-text">Helping the Nepali community in Czech Republic.</p>
   </div>
 </div>
 
-<div id="about" style="padding:30px 20px; text-align:center; background:#f5f5f5;">
-  <h2 style="color:#8B0000;">About Us</h2>
-  <p style="margin-top:10px; max-width:600px; margin-left:auto; margin-right:auto;">
-    Rayamajhi Shop is a small business in Praha serving the Nepali and Asian community. 
-    We provide quality products, import services, and community support.
-  </p>
+<div class="about" id="about">
+  <h2 class="about-title">About Us</h2>
+  <p class="about-text">Rayamajhi Shop is a small business in Praha serving the Nepali and Asian community. We provide quality products, import services, and community support.</p>
 </div>
 
 <div class="contact" id="contact">
-  <h2>📍 Contact Us</h2>
+  <h2 class="contact-title">📍 Contact Us</h2>
   <p>📍 Praha, Czech Republic</p>
   <p>📧 diliprayamajhi@email.com</p>
   <p>📱 Available on WhatsApp</p>
@@ -120,6 +136,58 @@
 <footer>
   &copy; 2026 Rayamajhi Shop Praha. All rights reserved.
 </footer>
+
+<script>
+  let isCzech = false;
+
+  const translations = {
+    en: {
+      navProducts: "Products", navAbout: "About", navContact: "Contact",
+      heroTitle: "Welcome to Rayamajhi Shop!",
+      heroText: "Nepali & Asian products, general merchandise, and community service in Praha.",
+      p1Title: "Nepali & Asian Food", p1Text: "Spices, noodles, rice, lentils, and more from Nepal and Asia.",
+      p2Title: "Daily Essentials", p2Text: "Household goods, personal care, and everyday items.",
+      p3Title: "Import & Reselling", p3Text: "Special products imported and resold for the community.",
+      p4Title: "Community Service", p4Text: "Helping the Nepali community in Czech Republic.",
+      aboutTitle: "About Us",
+      aboutText: "Rayamajhi Shop is a small business in Praha serving the Nepali and Asian community. We provide quality products, import services, and community support.",
+      contactTitle: "📍 Contact Us"
+    },
+    cz: {
+      navProducts: "Produkty", navAbout: "O nás", navContact: "Kontakt",
+      heroTitle: "Vítejte v Rayamajhi Shop!",
+      heroText: "Nepálské a asijské produkty, zboží a komunitní služby v Praze.",
+      p1Title: "Nepálské & Asijské Potraviny", p1Text: "Koření, nudle, rýže, čočka a další z Nepálu a Asie.",
+      p2Title: "Denní Potřeby", p2Text: "Domácí potřeby, osobní péče a každodenní zboží.",
+      p3Title: "Dovoz & Přeprodej", p3Text: "Speciální dovážené produkty pro komunitu.",
+      p4Title: "Komunitní Služby", p4Text: "Pomoc nepálské komunitě v České republice.",
+      aboutTitle: "O nás",
+      aboutText: "Rayamajhi Shop je malý podnik v Praze sloužící nepálské a asijské komunitě. Nabízíme kvalitní produkty, dovozní služby a komunitní podporu.",
+      contactTitle: "📍 Kontaktujte nás"
+    }
+  };
+
+  function toggleLang() {
+    isCzech = !isCzech;
+    const t = isCzech ? translations.cz : translations.en;
+    document.querySelector('.nav-products').textContent = t.navProducts;
+    document.querySelector('.nav-about').textContent = t.navAbout;
+    document.querySelector('.nav-contact').textContent = t.navContact;
+    document.querySelector('.hero-title').textContent = t.heroTitle;
+    document.querySelector('.hero-text').textContent = t.heroText;
+    document.querySelector('.p1-title').textContent = t.p1Title;
+    document.querySelector('.p1-text').textContent = t.p1Text;
+    document.querySelector('.p2-title').textContent = t.p2Title;
+    document.querySelector('.p2-text').textContent = t.p2Text;
+    document.querySelector('.p3-title').textContent = t.p3Title;
+    document.querySelector('.p3-text').textContent = t.p3Text;
+    document.querySelector('.p4-title').textContent = t.p4Title;
+    document.querySelector('.p4-text').textContent = t.p4Text;
+    document.querySelector('.about-title').textContent = t.aboutTitle;
+    document.querySelector('.about-text').textContent = t.aboutText;
+    document.querySelector('.contact-title').textContent = t.contactTitle;
+  }
+</script>
 
 </body>
 </html>
