@@ -54,11 +54,24 @@
       background: #fdf5e4;
       border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 20px;
-      width: 250px;
+      padding: 15px;
+      width: 260px;
       text-align: center;
     }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
     .card h3 { color: #8B0000; margin-bottom: 8px; }
+    .card p { font-size: 0.9em; margin-bottom: 8px; }
+    .price {
+      color: #8B0000;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
     .about {
       padding: 30px 20px;
       text-align: center;
@@ -87,7 +100,7 @@
 
 <header>
   <h1>🛍️ Rayamajhi Shop Praha</h1>
-  <p class="sub">नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+  <p>नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
   <button class="lang-btn" onclick="toggleLang()">🌐 Česky / English</button>
 </header>
 
@@ -99,26 +112,53 @@
 
 <div class="hero">
   <h2 class="hero-title">Welcome to Rayamajhi Shop!</h2>
-  <p class="hero-text">Nepali & Asian products, general merchandise, and community service in Praha.</p>
+  <p class="hero-text">Authentic Nepali & Asian products delivered in Praha.</p>
 </div>
 
 <div class="products" id="products">
+
   <div class="card">
-    <h3>🍜 <span class="p1-title">Nepali & Asian Food</span></h3>
-    <p class="p1-text">Spices, noodles, rice, lentils, and more from Nepal and Asia.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Basmati_rice.jpg/320px-Basmati_rice.jpg" alt="Basmati Rice">
+    <h3 class="pr1-title">Basmati Rice</h3>
+    <p class="pr1-desc">Premium long grain basmati rice</p>
+    <p class="price">1,100 Kč</p>
   </div>
+
   <div class="card">
-    <h3>🧴 <span class="p2-title">Daily Essentials</span></h3>
-    <p class="p2-text">Household goods, personal care, and everyday items.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Finger_millet.jpg/320px-Finger_millet.jpg" alt="Kodo Millet">
+    <h3 class="pr2-title">Kodo Millet (1 kg)</h3>
+    <p class="pr2-desc">Organic kodo millet from Nepal</p>
+    <p class="price">150 Kč</p>
   </div>
+
   <div class="card">
-    <h3>📦 <span class="p3-title">Import & Reselling</span></h3>
-    <p class="p3-text">Special products imported and resold for the community.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Wai_Wai_noodles.jpg/320px-Wai_Wai_noodles.jpg" alt="Wai Wai Noodles">
+    <h3 class="pr3-title">Wai Wai Noodles</h3>
+    <p class="pr3-desc">Popular Nepali instant noodles</p>
+    <p class="price">25 Kč</p>
   </div>
+
   <div class="card">
-    <h3>🤝 <span class="p4-title">Community Service</span></h3>
-    <p class="p4-text">Helping the Nepali community in Czech Republic.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chhurpi.jpg/320px-Chhurpi.jpg" alt="Chhurpi">
+    <h3 class="pr4-title">Chhurpi (100 gm)</h3>
+    <p class="pr4-desc">Traditional Nepali hard cheese</p>
+    <p class="price">200 Kč</p>
   </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Gundruk.jpg/320px-Gundruk.jpg" alt="Gundruk">
+    <h3 class="pr5-title">Gundruk (100 gm)</h3>
+    <p class="pr5-desc">Fermented leafy Nepali vegetable</p>
+    <p class="price">200 Kč</p>
+  </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Sukuti.jpg/320px-Sukuti.jpg" alt="Sukuti">
+    <h3 class="pr6-title">Sukuti (Chicken/Lamb/Buffalo)</h3>
+    <p class="pr6-desc">Dried Nepali meat — traditional delicacy</p>
+    <p class="price">1,000 Kč</p>
+  </div>
+
 </div>
 
 <div class="about" id="about">
@@ -139,30 +179,33 @@
 
 <script>
   let isCzech = false;
-
   const translations = {
     en: {
       navProducts: "Products", navAbout: "About", navContact: "Contact",
       heroTitle: "Welcome to Rayamajhi Shop!",
-      heroText: "Nepali & Asian products, general merchandise, and community service in Praha.",
-      p1Title: "Nepali & Asian Food", p1Text: "Spices, noodles, rice, lentils, and more from Nepal and Asia.",
-      p2Title: "Daily Essentials", p2Text: "Household goods, personal care, and everyday items.",
-      p3Title: "Import & Reselling", p3Text: "Special products imported and resold for the community.",
-      p4Title: "Community Service", p4Text: "Helping the Nepali community in Czech Republic.",
+      heroText: "Authentic Nepali & Asian products delivered in Praha.",
+      pr1Title: "Basmati Rice", pr1Desc: "Premium long grain basmati rice",
+      pr2Title: "Kodo Millet (1 kg)", pr2Desc: "Organic kodo millet from Nepal",
+      pr3Title: "Wai Wai Noodles", pr3Desc: "Popular Nepali instant noodles",
+      pr4Title: "Chhurpi (100 gm)", pr4Desc: "Traditional Nepali hard cheese",
+      pr5Title: "Gundruk (100 gm)", pr5Desc: "Fermented leafy Nepali vegetable",
+      pr6Title: "Sukuti (Chicken/Lamb/Buffalo)", pr6Desc: "Dried Nepali meat — traditional delicacy",
       aboutTitle: "About Us",
-      aboutText: "Rayamajhi Shop is a small business in Praha serving the Nepali and Asian community. We provide quality products, import services, and community support.",
+      aboutText: "Rayamajhi Shop is a small business in Praha serving the Nepali and Asian community.",
       contactTitle: "📍 Contact Us"
     },
     cz: {
       navProducts: "Produkty", navAbout: "O nás", navContact: "Kontakt",
       heroTitle: "Vítejte v Rayamajhi Shop!",
-      heroText: "Nepálské a asijské produkty, zboží a komunitní služby v Praze.",
-      p1Title: "Nepálské & Asijské Potraviny", p1Text: "Koření, nudle, rýže, čočka a další z Nepálu a Asie.",
-      p2Title: "Denní Potřeby", p2Text: "Domácí potřeby, osobní péče a každodenní zboží.",
-      p3Title: "Dovoz & Přeprodej", p3Text: "Speciální dovážené produkty pro komunitu.",
-      p4Title: "Komunitní Služby", p4Text: "Pomoc nepálské komunitě v České republice.",
+      heroText: "Autentické nepálské a asijské produkty v Praze.",
+      pr1Title: "Basmati Rýže", pr1Desc: "Prémiová dlouhozrnná basmati rýže",
+      pr2Title: "Kodo Proso (1 kg)", pr2Desc: "Organické kodo proso z Nepálu",
+      pr3Title: "Wai Wai Nudle", pr3Desc: "Populární nepálské instantní nudle",
+      pr4Title: "Chhurpi (100 gm)", pr4Desc: "Tradiční nepálský tvrdý sýr",
+      pr5Title: "Gundruk (100 gm)", pr5Desc: "Fermentovaná nepálská listová zelenina",
+      pr6Title: "Sukuti (Kuře/Jehněčí/Buvol)", pr6Desc: "Sušené nepálské maso — tradiční delikatesa",
       aboutTitle: "O nás",
-      aboutText: "Rayamajhi Shop je malý podnik v Praze sloužící nepálské a asijské komunitě. Nabízíme kvalitní produkty, dovozní služby a komunitní podporu.",
+      aboutText: "Rayamajhi Shop je malý podnik v Praze sloužící nepálské a asijské komunitě.",
       contactTitle: "📍 Kontaktujte nás"
     }
   };
@@ -175,14 +218,18 @@
     document.querySelector('.nav-contact').textContent = t.navContact;
     document.querySelector('.hero-title').textContent = t.heroTitle;
     document.querySelector('.hero-text').textContent = t.heroText;
-    document.querySelector('.p1-title').textContent = t.p1Title;
-    document.querySelector('.p1-text').textContent = t.p1Text;
-    document.querySelector('.p2-title').textContent = t.p2Title;
-    document.querySelector('.p2-text').textContent = t.p2Text;
-    document.querySelector('.p3-title').textContent = t.p3Title;
-    document.querySelector('.p3-text').textContent = t.p3Text;
-    document.querySelector('.p4-title').textContent = t.p4Title;
-    document.querySelector('.p4-text').textContent = t.p4Text;
+    document.querySelector('.pr1-title').textContent = t.pr1Title;
+    document.querySelector('.pr1-desc').textContent = t.pr1Desc;
+    document.querySelector('.pr2-title').textContent = t.pr2Title;
+    document.querySelector('.pr2-desc').textContent = t.pr2Desc;
+    document.querySelector('.pr3-title').textContent = t.pr3Title;
+    document.querySelector('.pr3-desc').textContent = t.pr3Desc;
+    document.querySelector('.pr4-title').textContent = t.pr4Title;
+    document.querySelector('.pr4-desc').textContent = t.pr4Desc;
+    document.querySelector('.pr5-title').textContent = t.pr5Title;
+    document.querySelector('.pr5-desc').textContent = t.pr5Desc;
+    document.querySelector('.pr6-title').textContent = t.pr6Title;
+    document.querySelector('.pr6-desc').textContent = t.pr6Desc;
     document.querySelector('.about-title').textContent = t.aboutTitle;
     document.querySelector('.about-text').textContent = t.aboutText;
     document.querySelector('.contact-title').textContent = t.contactTitle;
