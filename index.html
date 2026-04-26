@@ -1,81 +1,343 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-  <title>Himalayan Store Praha</title>
   <meta charset="UTF-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himalayan Store Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial;
-    background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    :root {
+      --red: #8B0000;
+      --gold: #c9a84c;
+      --cream: #fdf6ec;
+      --dark: #1a1a1a;
+      --card-bg: #ffffff;
     }
 
-    h1 {
-      background-color: green;
-      color: white;
-      padding: 15px;
-      margin: 0;
-    }
+```
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 10px;
-      width: 250px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+/* HEADER */
+header {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 36px 20px 24px;
+}
 
-    img {
-      width: 100%;
-      border-radius: 10px;
-    }
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
 
-    .price {
-      color: green;
-      font-weight: bold;
-    }
+header p {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.lang-btn {
+  margin-top: 16px;
+  display: inline-block;
+  background: white;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+/* NAV */
+nav {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 14px 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--red);
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* PRODUCTS */
+#products {
+  padding: 30px 20px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#products h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(139,0,0,0.13);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--dark);
+  padding: 14px 16px 4px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0 16px 8px;
+}
+
+.card .price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--red);
+  padding: 0 16px 16px;
+}
+
+/* ABOUT */
+#about {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 50px 24px;
+}
+
+#about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+#about p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+/* CONTACT */
+#contact {
+  text-align: center;
+  padding: 50px 24px;
+  background: #f5ece0;
+}
+
+#contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 1rem;
+  line-height: 2.2;
+  color: #333;
+}
+
+.contact-info a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: #25D366;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 18px;
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.7rem; }
+  .hero h2 { font-size: 1.5rem; }
+}
+```
+
   </style>
 </head>
-
 <body>
 
-<h1>Himalayan Store Praha</h1>
+  <!-- HEADER -->
 
-<div class="container">
+  <header>
+    <h1>🏔️ Himalayan Store Praha</h1>
+    <p>नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+    <a class="lang-btn" href="#">🌐 Česky / English</a>
+  </header>
 
+  <!-- NAV -->
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+
+  <div class="hero">
+    <h2>Welcome to Himalayan Store Praha!</h2>
+    <p>Authentic Nepali & Asian products delivered in Praha.</p>
+  </div>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products-grid">
+
+```
   <div class="card">
-    <img src="https://images.immediate.co.uk" />
-    <h3>Basmati Rice</h3>
-    <p>Premium long grain rice</p>
+    <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/basmati-rice-in-a-bowl-7e97040.jpg" alt="Basmati Rice">
+    <h3 class="pr1-title">Basmati Rice</h3>
+    <p class="pr1-desc">Premium long grain basmati rice</p>
     <p class="price">1,100 Kč</p>
   </div>
 
   <div class="card">
-    <img src="https://www.jiomart.com/images" />
-    <h3>Kodo Millet (1 kg)</h3>
-    <p>Organic kodo millet</p>
+    <img src="https://www.jiomart.com/images/product/original/490004083/kodo-millet-500-g-product-images-o490004083-p490004083-0-202203170330.jpg" alt="Kodo Millet">
+    <h3 class="pr2-title">Kodo Millet (1 kg)</h3>
+    <p class="pr2-desc">Organic kodo millet from Nepal</p>
     <p class="price">150 Kč</p>
   </div>
 
   <div class="card">
-    <img src="https://www.waiwai.com/wp-content" />
-    <h3>Wai Wai Noodles</h3>
-    <p>Popular Nepali instant noodles</p>
+    <img src="https://www.waiwai.com/wp-content/uploads/2019/09/chicken.png" alt="Wai Wai">
+    <h3 class="pr3-title">Wai Wai Noodles</h3>
+    <p class="pr3-desc">Popular Nepali instant noodles</p>
     <p class="price">25 Kč</p>
   </div>
 
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chhurpi.jpg/320px-Chhurpi.jpg" alt="Chhurpi">
+    <h3 class="pr4-title">Chhurpi (100 gm)</h3>
+    <p class="pr4-desc">Traditional Nepali hard cheese</p>
+    <p class="price">200 Kč</p>
+  </div>
+
+  <div class="card">
+    <img src="https://i.ibb.co/md5V4Hf/IMG-0917.jpg" alt="Gundruk">
+    <h3 class="pr5-title">Gundruk (100 gm)</h3>
+    <p class="pr5-desc">Fermented leafy Nepali vegetable</p>
+    <p class="price">200 Kč</p>
+  </div>
+
+  <div class="card">
+    <img src="https://i.ibb.co/sdzFvMcd/IMG-0913.jpg" alt="Sukuti">
+    <h3 class="pr6-title">Sukuti (Chicken/Lamb/Buffalo)</h3>
+    <p class="pr6-desc">Dried Nepali meat — traditional delicacy</p>
+    <p class="price">1,000 Kč</p>
+  </div>
+
 </div>
+```
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Himalayan Store Praha is a small business in Praha serving the Nepali and Asian community. We provide quality products, import services, and community support.</p>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <h2>📍 Contact Us</h2>
+    <div class="contact-info">
+      <div>📞 <a href="tel:+420720559443">+420 720 559 443</a></div>
+      <div>📍 Praha, Czech Republic</div>
+      <div>📧 <a href="mailto:dr7794606@email.com">dr7794606@email.com</a></div>
+    </div>
+    <a class="whatsapp-btn" href="https://wa.me/420720559443" target="_blank">📱 WhatsApp us</a>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 Himalayan Store Praha. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
