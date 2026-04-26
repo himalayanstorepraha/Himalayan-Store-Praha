@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏔️ Himalayan Store Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #c0392b;
+      --dark: #1a1a2e;
+      --gold: #f0a500;
+      --light: #fdf6ec;
+      --gray: #6b7280;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--dark); }
+
+```
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+  color: white;
+  padding: 0 24px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; }
+.logo span { color: var(--gold); }
+nav { display: flex; gap: 6px; flex-wrap: wrap; }
+nav a {
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  font-size: 0.78rem; padding: 6px 12px; border-radius: 20px;
+  transition: all 0.2s;
+}
+nav a:hover { background: var(--gold); color: var(--dark); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(120deg, #c0392b 0%, #e74c3c 50%, #f0a500 100%);
+  color: white; text-align: center;
+  padding: 60px 24px 50px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '🏔️';
+  position: absolute; font-size: 200px; opacity: 0.07;
+  top: -30px; right: -30px;
+}
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; margin-bottom: 10px; }
+.hero p { font-size: 1rem; opacity: 0.92; margin-bottom: 20px; }
+.lang-btn {
+  display: inline-block; background: white; color: var(--red);
+  padding: 8px 22px; border-radius: 24px; font-weight: 600; font-size: 0.85rem;
+  text-decoration: none; margin: 4px;
+  transition: transform 0.2s;
+}
+.lang-btn:hover { transform: scale(1.05); }
+
+/* CATEGORY TABS */
+.cat-tabs {
+  background: white;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: sticky; top: 64px; z-index: 90;
+  overflow-x: auto;
+}
+.cat-tabs-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; gap: 0;
+  white-space: nowrap;
+}
+.cat-tab {
+  padding: 14px 20px;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--gray); cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s; white-space: nowrap;
+  background: none; border-top: none; border-left: none; border-right: none;
+}
+.cat-tab:hover, .cat-tab.active {
+  color: var(--red); border-bottom-color: var(--red);
+}
+
+/* SECTIONS */
+.section { padding: 40px 24px; max-width: 1200px; margin: 0 auto; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700;
+  margin-bottom: 6px; color: var(--dark);
+}
+.section-sub { color: var(--gray); font-size: 0.9rem; margin-bottom: 28px; }
+
+/* PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: white; border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.13); }
+.product-img {
+  width: 100%; height: 180px; object-fit: cover;
+  background: #f3f4f6;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+}
+.product-img img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 14px; }
+.product-name { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; line-height: 1.3; }
+.product-origin { font-size: 0.75rem; color: var(--gray); margin-bottom: 8px; }
+.product-price { font-size: 1.1rem; font-weight: 700; color: var(--red); }
+.product-old { font-size: 0.8rem; color: var(--gray); text-decoration: line-through; margin-left: 6px; }
+.product-badge {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 8px;
+  background: #fef3c7; color: #92400e;
+  margin-bottom: 6px;
+}
+.btn-add {
+  display: block; width: 100%; margin-top: 10px;
+  background: var(--red); color: white;
+  border: none; border-radius: 10px;
+  padding: 8px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+.btn-add:hover { background: #a93226; }
+
+/* ABOUT */
+.about-section {
+  background: var(--dark); color: white;
+  padding: 50px 24px; margin-top: 20px;
+}
+.about-inner { max-width: 1200px; margin: 0 auto; }
+.about-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 14px; color: var(--gold); }
+.about-section p { opacity: 0.85; line-height: 1.8; max-width: 600px; }
+
+/* CONTACT */
+.contact-section { padding: 40px 24px; max-width: 1200px; margin: 0 auto; }
+.contact-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 20px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.contact-card {
+  background: white; border-radius: 14px; padding: 20px;
+  box-shadow: var(--shadow); display: flex; align-items: flex-start; gap: 14px;
+}
+.contact-icon { font-size: 1.8rem; }
+.contact-card h4 { font-weight: 600; margin-bottom: 4px; }
+.contact-card p { font-size: 0.88rem; color: var(--gray); }
+
+/* FOOTER */
+footer {
+  background: #111827; color: rgba(255,255,255,0.6);
+  text-align: center; padding: 20px;
+  font-size: 0.82rem;
+}
+footer span { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.6rem; }
+  nav { display: none; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-img { height: 140px; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="header-inner">
+    <div class="logo">🏔️ Himalayan <span>Store</span></div>
+    <nav>
+      <a href="#men-clothing">Men</a>
+      <a href="#women-clothing">Women</a>
+      <a href="#shoes">Shoes</a>
+      <a href="#watches">Watches</a>
+      <a href="#sunglasses">Sunglasses</a>
+      <a href="#electronics">Electronics</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<div class="hero">
+  <h1>🏔️ Himalayan Store Praha</h1>
+  <p>नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+  <a href="#products" class="lang-btn">🛒 Shop Now</a>
+  <a href="#contact" class="lang-btn">📞 Contact</a>
+</div>
+
+<!-- CATEGORY TABS -->
+
+<div class="cat-tabs">
+  <div class="cat-tabs-inner">
+    <button class="cat-tab active" onclick="scrollTo('men-clothing')">👔 Men's Clothing</button>
+    <button class="cat-tab" onclick="scrollTo('women-clothing')">👗 Women's Clothing</button>
+    <button class="cat-tab" onclick="scrollTo('shoes')">👟 Shoes</button>
+    <button class="cat-tab" onclick="scrollTo('watches')">⌚ Watches</button>
+    <button class="cat-tab" onclick="scrollTo('sunglasses')">🕶️ Sunglasses</button>
+    <button class="cat-tab" onclick="scrollTo('electronics')">📱 Electronics</button>
+  </div>
+</div>
+
+<!-- MEN'S CLOTHING -->
+
+<div id="men-clothing" class="section">
+  <div class="section-title">👔 Men's Clothing</div>
+  <div class="section-sub">पुरुषका लागि ट्रेन्डी र आरामदायी कपडाहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">👕</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Best Seller</div>
+    <div class="product-name">Men's Slim Fit T-Shirt</div>
+    
+    <div><span class="product-price">299 Kč</span><span class="product-old">450 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👖</div>
+  <div class="product-info">
+    <div class="product-badge">⭐ New Arrival</div>
+    <div class="product-name">Men's Slim Jeans</div>
+    
+    <div><span class="product-price">599 Kč</span><span class="product-old">899 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🧥</div>
+  <div class="product-info">
+    <div class="product-badge">❄️ Winter</div>
+    <div class="product-name">Men's Winter Jacket</div>
+    
+    <div><span class="product-price">1,199 Kč</span><span class="product-old">1,800 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👔</div>
+  <div class="product-info">
+    <div class="product-name">Men's Formal Shirt</div>
+    
+    <div><span class="product-price">449 Kč</span><span class="product-old">650 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🩳</div>
+  <div class="product-info">
+    <div class="product-name">Men's Sports Shorts</div>
+    
+    <div><span class="product-price">249 Kč</span><span class="product-old">380 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🧣</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Hot Deal</div>
+    <div class="product-name">Men's Hoodie Sweatshirt</div>
+    
+    <div><span class="product-price">699 Kč</span><span class="product-old">999 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- WOMEN'S CLOTHING -->
+
+<div id="women-clothing" class="section" style="background: #fff8f8; border-radius: 20px; margin: 0 12px;">
+  <div class="section-title">👗 Women's Clothing</div>
+  <div class="section-sub">महिलाका लागि फ्यासनेबल र स्टाइलिश कपडाहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">👗</div>
+  <div class="product-info">
+    <div class="product-badge">💖 Trending</div>
+    <div class="product-name">Women's Floral Dress</div>
+    
+    <div><span class="product-price">549 Kč</span><span class="product-old">850 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👚</div>
+  <div class="product-info">
+    <div class="product-name">Women's Crop Top</div>
+    
+    <div><span class="product-price">249 Kč</span><span class="product-old">399 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🧥</div>
+  <div class="product-info">
+    <div class="product-badge">❄️ Winter</div>
+    <div class="product-name">Women's Long Coat</div>
+    
+    <div><span class="product-price">1,299 Kč</span><span class="product-old">2,000 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👖</div>
+  <div class="product-info">
+    <div class="product-name">Women's Skinny Jeans</div>
+    
+    <div><span class="product-price">549 Kč</span><span class="product-old">799 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👙</div>
+  <div class="product-info">
+    <div class="product-badge">☀️ Summer</div>
+    <div class="product-name">Women's Summer Set</div>
+    
+    <div><span class="product-price">399 Kč</span><span class="product-old">599 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🧦</div>
+  <div class="product-info">
+    <div class="product-name">Women's Leggings</div>
+    
+    <div><span class="product-price">299 Kč</span><span class="product-old">450 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- SHOES -->
+
+<div id="shoes" class="section">
+  <div class="section-title">👟 Shoes</div>
+  <div class="section-sub">पुरुष र महिला दुवैका लागि जुत्ताहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">👟</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Hot Deal</div>
+    <div class="product-name">Men's Sports Sneakers</div>
+    
+    <div><span class="product-price">799 Kč</span><span class="product-old">1,200 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👠</div>
+  <div class="product-info">
+    <div class="product-badge">💖 Trending</div>
+    <div class="product-name">Women's High Heels</div>
+    
+    <div><span class="product-price">699 Kč</span><span class="product-old">1,000 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🥾</div>
+  <div class="product-info">
+    <div class="product-name">Men's Leather Boots</div>
+    
+    <div><span class="product-price">999 Kč</span><span class="product-old">1,500 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👡</div>
+  <div class="product-info">
+    <div class="product-name">Women's Flat Sandals</div>
+    
+    <div><span class="product-price">449 Kč</span><span class="product-old">680 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🩴</div>
+  <div class="product-info">
+    <div class="product-badge">⭐ Popular</div>
+    <div class="product-name">Unisex Casual Slippers</div>
+    
+    <div><span class="product-price">299 Kč</span><span class="product-old">450 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">👞</div>
+  <div class="product-info">
+    <div class="product-name">Men's Formal Shoes</div>
+    
+    <div><span class="product-price">899 Kč</span><span class="product-old">1,300 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- WATCHES -->
+
+<div id="watches" class="section" style="background: #f0f4ff; border-radius: 20px; margin: 0 12px;">
+  <div class="section-title">⌚ Watches</div>
+  <div class="section-sub">स्टाइलिश र किफायती घडीहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">⌚</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Best Seller</div>
+    <div class="product-name">Men's Smart Watch</div>
+    
+    <div><span class="product-price">1,499 Kč</span><span class="product-old">2,200 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">⌚</div>
+  <div class="product-info">
+    <div class="product-badge">💖 Ladies</div>
+    <div class="product-name">Women's Luxury Watch</div>
+    
+    <div><span class="product-price">1,299 Kč</span><span class="product-old">1,900 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">⌚</div>
+  <div class="product-info">
+    <div class="product-name">Men's Sport Watch</div>
+    
+    <div><span class="product-price">899 Kč</span><span class="product-old">1,400 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">⌚</div>
+  <div class="product-info">
+    <div class="product-badge">⭐ Classic</div>
+    <div class="product-name">Unisex Classic Watch</div>
+    
+    <div><span class="product-price">699 Kč</span><span class="product-old">1,000 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- SUNGLASSES -->
+
+<div id="sunglasses" class="section">
+  <div class="section-title">🕶️ Sunglasses</div>
+  <div class="section-sub">ट्रेन्डी र UV protection सनग्लासहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">🕶️</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Trendy</div>
+    <div class="product-name">Men's Aviator Sunglasses</div>
+    
+    <div><span class="product-price">449 Kč</span><span class="product-old">700 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🕶️</div>
+  <div class="product-info">
+    <div class="product-badge">💖 Ladies</div>
+    <div class="product-name">Women's Cat Eye Glasses</div>
+    
+    <div><span class="product-price">399 Kč</span><span class="product-old">600 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🕶️</div>
+  <div class="product-info">
+    <div class="product-name">Unisex Round Sunglasses</div>
+    
+    <div><span class="product-price">349 Kč</span><span class="product-old">520 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🕶️</div>
+  <div class="product-info">
+    <div class="product-badge">☀️ UV400</div>
+    <div class="product-name">Sports Sunglasses</div>
+    
+    <div><span class="product-price">499 Kč</span><span class="product-old">750 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- ELECTRONICS -->
+
+<div id="electronics" class="section" style="background: #f0fff4; border-radius: 20px; margin: 0 12px;">
+  <div class="section-title">📱 Electronics</div>
+  <div class="section-sub">किफायती र उच्च गुणस्तरका इलेक्ट्रोनिक सामानहरू</div>
+  <div class="product-grid">
+
+```
+<div class="product-card">
+  <div class="product-img">🎧</div>
+  <div class="product-info">
+    <div class="product-badge">🔥 Best Seller</div>
+    <div class="product-name">Wireless Earbuds</div>
+    
+    <div><span class="product-price">799 Kč</span><span class="product-old">1,200 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">🔋</div>
+  <div class="product-info">
+    <div class="product-name">Power Bank 20000mAh</div>
+    
+    <div><span class="product-price">699 Kč</span><span class="product-old">999 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">📱</div>
+  <div class="product-info">
+    <div class="product-badge">⭐ Popular</div>
+    <div class="product-name">Phone Case (Universal)</div>
+    
+    <div><span class="product-price">199 Kč</span><span class="product-old">300 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">⌨️</div>
+  <div class="product-info">
+    <div class="product-name">Wireless Keyboard + Mouse</div>
+    
+    <div><span class="product-price">899 Kč</span><span class="product-old">1,300 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">💡</div>
+  <div class="product-info">
+    <div class="product-badge">🏠 Smart Home</div>
+    <div class="product-name">Smart LED Strip Light</div>
+    
+    <div><span class="product-price">499 Kč</span><span class="product-old">750 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card">
+  <div class="product-img">📷</div>
+  <div class="product-info">
+    <div class="product-name">Mini Security Camera</div>
+    
+    <div><span class="product-price">1,199 Kč</span><span class="product-old">1,800 Kč</span></div>
+    <button class="btn-add">+ Add to Cart</button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="about-section">
+  <div class="about-inner">
+    <h2>🏔️ About Us</h2>
+    <p>Himalayan Store Praha is your trusted source for quality Asian products in the Czech Republic. We offer a wide range of clothing, footwear, accessories, and electronics at competitive prices. Our products are carefully selected to bring you the best value for your money.</p>
+    <br>
+    <p>📍 Praha, Czech Republic &nbsp;|&nbsp; 🇳🇵 Nepali Owned Business</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="contact-section">
+  <h2>📞 Contact Us</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div>
+        <h4>Address</h4>
+        <p>Praha, Czech Republic</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📱</div>
+      <div>
+        <h4>Phone / WhatsApp</h4>
+        <p>+420 XXX XXX XXX</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📘</div>
+      <div>
+        <h4>Facebook</h4>
+        <p>Himalayan Store Praha</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <div>
+        <h4>Email</h4>
+        <p>himalayan.store@email.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2025 <span>Himalayan Store Praha</span> — All rights reserved | Made with ❤️ in Czech Republic</p>
+</footer>
+
+<script>
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
