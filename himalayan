@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏔️ Himalayan Store Praha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #c0392b;
+      --dark: #1a1a2e;
+      --gold: #f0a500;
+      --light: #fdf6ec;
+      --gray: #6b7280;
+      --white: #ffffff;
+      --green: #25D366;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--dark); }
+
+```
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--dark) 0%, #c0392b 100%);
+  color: white;
+  padding: 0 24px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
+nav { display: flex; gap: 16px; flex-wrap: wrap; }
+nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+nav a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #c0392b 0%, #f0a500 100%);
+  color: white; text-align: center; padding: 64px 24px;
+}
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 12px; }
+.hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 28px; }
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-outline { border: 2px solid white; color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+.btn-outline:hover { background: white; color: var(--red); }
+
+/* CATEGORY TABS */
+.cat-tabs { background: white; border-bottom: 1px solid #eee; position: sticky; top: 64px; z-index: 99; overflow-x: auto; }
+.cat-tabs-inner { display: flex; max-width: 1200px; margin: 0 auto; padding: 0 16px; gap: 4px; }
+.cat-tab { padding: 14px 18px; border: none; background: none; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--gray); border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
+.cat-tab.active, .cat-tab:hover { color: var(--red); border-bottom-color: var(--red); }
+
+/* PRODUCTS */
+.products { max-width: 1200px; margin: 0 auto; padding: 40px 16px; }
+.section { margin-bottom: 48px; display: none; }
+.section.active { display: block; }
+.section-title { margin-bottom: 24px; }
+.section-title h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dark); }
+.section-title p { color: var(--gray); margin-top: 4px; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+
+/* PRODUCT CARD */
+.product-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s; }
+.product-card:hover { transform: translateY(-4px); }
+.product-img { background: #f3f4f6; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+.product-info { padding: 16px; }
+.product-badge { display: inline-block; background: #fff3cd; color: #856404; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+.product-name { font-weight: 600; font-size: 15px; margin-bottom: 8px; line-height: 1.3; }
+.product-price { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.price-new { color: var(--red); font-weight: 700; font-size: 18px; }
+.price-old { color: var(--gray); text-decoration: line-through; font-size: 14px; }
+.btn-cart {
+  width: 100%; padding: 10px;
+  background: var(--green); color: white;
+  border: none; border-radius: 10px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-cart:hover { background: #1da851; }
+
+/* ABOUT */
+.about { background: var(--dark); color: white; padding: 60px 24px; text-align: center; }
+.about h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 16px; }
+.about p { max-width: 600px; margin: 0 auto; opacity: 0.85; line-height: 1.7; }
+
+/* CONTACT */
+.contact { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+.contact h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 32px; text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.contact-card { background: white; border-radius: 16px; padding: 20px; box-shadow: var(--shadow); text-align: center; }
+.contact-icon { font-size: 32px; margin-bottom: 8px; }
+.contact-card h4 { font-size: 14px; color: var(--gray); margin-bottom: 4px; }
+.contact-card p { font-weight: 600; font-size: 14px; }
+
+/* FOOTER */
+footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 20px; font-size: 13px; }
+footer span { color: var(--gold); }
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed; bottom: 20px; right: 20px;
+  background: var(--green); color: white;
+  padding: 14px 20px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  z-index: 999; transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.05); }
+```
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="header-inner">
+    <div class="logo">🏔️ Himalayan Store</div>
+    <nav>
+      <a href="#" onclick="showSection('men-clothing')">Men</a>
+      <a href="#" onclick="showSection('women-clothing')">Women</a>
+      <a href="#" onclick="showSection('shoes')">Shoes</a>
+      <a href="#" onclick="showSection('watches')">Watches</a>
+      <a href="#" onclick="showSection('sunglasses')">Sunglasses</a>
+      <a href="#" onclick="showSection('electronics')">Electronics</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<div class="hero">
+  <h1>🏔️ Himalayan Store Praha</h1>
+  <p>नेपाली र एशियन उत्पादनहरू | Praha, Czech Republic</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-outline">🛒 Shop Now</a>
+    <a href="#contact" class="btn-outline">📞 Contact</a>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+
+<div class="cat-tabs">
+  <div class="cat-tabs-inner">
+    <button class="cat-tab active" onclick="showSection('men-clothing')">👔 Men's</button>
+    <button class="cat-tab" onclick="showSection('women-clothing')">👗 Women's</button>
+    <button class="cat-tab" onclick="showSection('shoes')">👟 Shoes</button>
+    <button class="cat-tab" onclick="showSection('watches')">⌚ Watches</button>
+    <button class="cat-tab" onclick="showSection('sunglasses')">🕶️ Sunglasses</button>
+    <button class="cat-tab" onclick="showSection('electronics')">📱 Electronics</button>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+
+<div class="products" id="products">
+
+  <!-- MEN'S CLOTHING -->
+
+  <div class="section active" id="men-clothing">
+    <div class="section-title">
+      <h2>👔 Men's Clothing</h2>
+      <p>पुरुषका लागि ट्रेन्डी र आरामदायी कपडाहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">👕</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Best Seller</span>
+          <div class="product-name">Men's Slim Fit T-Shirt</div>
+          <div class="product-price"><span class="price-new">299 Kč</span><span class="price-old">450 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Slim Fit T-Shirt', '299')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👖</div>
+        <div class="product-info">
+          <span class="product-badge">⭐ New Arrival</span>
+          <div class="product-name">Men's Slim Jeans</div>
+          <div class="product-price"><span class="price-new">599 Kč</span><span class="price-old">899 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Slim Jeans', '599')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🧥</div>
+        <div class="product-info">
+          <span class="product-badge">❄️ Winter</span>
+          <div class="product-name">Men's Winter Jacket</div>
+          <div class="product-price"><span class="price-new">1,199 Kč</span><span class="price-old">1,800 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Winter Jacket', '1199')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👔</div>
+        <div class="product-info">
+          <div class="product-name">Men's Formal Shirt</div>
+          <div class="product-price"><span class="price-new">449 Kč</span><span class="price-old">650 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Formal Shirt', '449')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🩳</div>
+        <div class="product-info">
+          <div class="product-name">Men's Sports Shorts</div>
+          <div class="product-price"><span class="price-new">249 Kč</span><span class="price-old">380 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Sports Shorts', '249')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🧣</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Hot Deal</span>
+          <div class="product-name">Men's Hoodie Sweatshirt</div>
+          <div class="product-price"><span class="price-new">699 Kč</span><span class="price-old">999 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Hoodie Sweatshirt', '699')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WOMEN'S CLOTHING -->
+
+  <div class="section" id="women-clothing">
+    <div class="section-title">
+      <h2>👗 Women's Clothing</h2>
+      <p>महिलाका लागि फ्यासनेबल र स्टाइलिश कपडाहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">👗</div>
+        <div class="product-info">
+          <span class="product-badge">💖 Trending</span>
+          <div class="product-name">Women's Floral Dress</div>
+          <div class="product-price"><span class="price-new">549 Kč</span><span class="price-old">850 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Floral Dress', '549')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👚</div>
+        <div class="product-info">
+          <div class="product-name">Women's Crop Top</div>
+          <div class="product-price"><span class="price-new">249 Kč</span><span class="price-old">399 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Crop Top', '249')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🧥</div>
+        <div class="product-info">
+          <span class="product-badge">❄️ Winter</span>
+          <div class="product-name">Women's Long Coat</div>
+          <div class="product-price"><span class="price-new">1,299 Kč</span><span class="price-old">2,000 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Long Coat', '1299')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👖</div>
+        <div class="product-info">
+          <div class="product-name">Women's Skinny Jeans</div>
+          <div class="product-price"><span class="price-new">549 Kč</span><span class="price-old">799 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Skinny Jeans', '549')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👙</div>
+        <div class="product-info">
+          <span class="product-badge">☀️ Summer</span>
+          <div class="product-name">Women's Summer Set</div>
+          <div class="product-price"><span class="price-new">399 Kč</span><span class="price-old">599 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Summer Set', '399')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🧦</div>
+        <div class="product-info">
+          <div class="product-name">Women's Leggings</div>
+          <div class="product-price"><span class="price-new">299 Kč</span><span class="price-old">450 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Leggings', '299')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOES -->
+
+  <div class="section" id="shoes">
+    <div class="section-title">
+      <h2>👟 Shoes</h2>
+      <p>पुरुष र महिला दुवैका लागि जुत्ताहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">👟</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Hot Deal</span>
+          <div class="product-name">Men's Sports Sneakers</div>
+          <div class="product-price"><span class="price-new">799 Kč</span><span class="price-old">1,200 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Sports Sneakers', '799')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👠</div>
+        <div class="product-info">
+          <span class="product-badge">💖 Trending</span>
+          <div class="product-name">Women's High Heels</div>
+          <div class="product-price"><span class="price-new">699 Kč</span><span class="price-old">1,000 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s High Heels', '699')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🥾</div>
+        <div class="product-info">
+          <div class="product-name">Men's Leather Boots</div>
+          <div class="product-price"><span class="price-new">999 Kč</span><span class="price-old">1,500 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Leather Boots', '999')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👡</div>
+        <div class="product-info">
+          <div class="product-name">Women's Flat Sandals</div>
+          <div class="product-price"><span class="price-new">449 Kč</span><span class="price-old">680 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Flat Sandals', '449')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🩴</div>
+        <div class="product-info">
+          <span class="product-badge">⭐ Popular</span>
+          <div class="product-name">Unisex Casual Slippers</div>
+          <div class="product-price"><span class="price-new">299 Kč</span><span class="price-old">450 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Unisex Casual Slippers', '299')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">👞</div>
+        <div class="product-info">
+          <div class="product-name">Men's Formal Shoes</div>
+          <div class="product-price"><span class="price-new">899 Kč</span><span class="price-old">1,300 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Formal Shoes', '899')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATCHES -->
+
+  <div class="section" id="watches">
+    <div class="section-title">
+      <h2>⌚ Watches</h2>
+      <p>स्टाइलिश र किफायती घडीहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">⌚</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Best Seller</span>
+          <div class="product-name">Men's Smart Watch</div>
+          <div class="product-price"><span class="price-new">1,499 Kč</span><span class="price-old">2,200 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Smart Watch', '1499')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">⌚</div>
+        <div class="product-info">
+          <span class="product-badge">💖 Ladies</span>
+          <div class="product-name">Women's Luxury Watch</div>
+          <div class="product-price"><span class="price-new">1,299 Kč</span><span class="price-old">1,900 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Luxury Watch', '1299')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">⌚</div>
+        <div class="product-info">
+          <div class="product-name">Men's Sport Watch</div>
+          <div class="product-price"><span class="price-new">899 Kč</span><span class="price-old">1,400 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Sport Watch', '899')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">⌚</div>
+        <div class="product-info">
+          <span class="product-badge">⭐ Classic</span>
+          <div class="product-name">Unisex Classic Watch</div>
+          <div class="product-price"><span class="price-new">699 Kč</span><span class="price-old">1,000 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Unisex Classic Watch', '699')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNGLASSES -->
+
+  <div class="section" id="sunglasses">
+    <div class="section-title">
+      <h2>🕶️ Sunglasses</h2>
+      <p>ट्रेन्डी र UV protection सनग्लासहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">🕶️</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Trendy</span>
+          <div class="product-name">Men's Aviator Sunglasses</div>
+          <div class="product-price"><span class="price-new">449 Kč</span><span class="price-old">700 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Men\'s Aviator Sunglasses', '449')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🕶️</div>
+        <div class="product-info">
+          <span class="product-badge">💖 Ladies</span>
+          <div class="product-name">Women's Cat Eye Glasses</div>
+          <div class="product-price"><span class="price-new">399 Kč</span><span class="price-old">600 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Women\'s Cat Eye Glasses', '399')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🕶️</div>
+        <div class="product-info">
+          <div class="product-name">Unisex Round Sunglasses</div>
+          <div class="product-price"><span class="price-new">349 Kč</span><span class="price-old">520 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Unisex Round Sunglasses', '349')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🕶️</div>
+        <div class="product-info">
+          <span class="product-badge">☀️ UV400</span>
+          <div class="product-name">Sports Sunglasses</div>
+          <div class="product-price"><span class="price-new">499 Kč</span><span class="price-old">750 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Sports Sunglasses', '499')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ELECTRONICS -->
+
+  <div class="section" id="electronics">
+    <div class="section-title">
+      <h2>📱 Electronics</h2>
+      <p>किफायती र उच्च गुणस्तरका इलेक्ट्रोनिक सामानहरू</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">🎧</div>
+        <div class="product-info">
+          <span class="product-badge">🔥 Best Seller</span>
+          <div class="product-name">Wireless Earbuds</div>
+          <div class="product-price"><span class="price-new">799 Kč</span><span class="price-old">1,200 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Wireless Earbuds', '799')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🔋</div>
+        <div class="product-info">
+          <div class="product-name">Power Bank 20000mAh</div>
+          <div class="product-price"><span class="price-new">699 Kč</span><span class="price-old">999 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Power Bank 20000mAh', '699')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">📱</div>
+        <div class="product-info">
+          <span class="product-badge">⭐ Popular</span>
+          <div class="product-name">Phone Case (Universal)</div>
+          <div class="product-price"><span class="price-new">199 Kč</span><span class="price-old">300 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Phone Case (Universal)', '199')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">⌨️</div>
+        <div class="product-info">
+          <div class="product-name">Wireless Keyboard + Mouse</div>
+          <div class="product-price"><span class="price-new">899 Kč</span><span class="price-old">1,300 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Wireless Keyboard + Mouse', '899')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">💡</div>
+        <div class="product-info">
+          <span class="product-badge">🏠 Smart Home</span>
+          <div class="product-name">Smart LED Strip Light</div>
+          <div class="product-price"><span class="price-new">499 Kč</span><span class="price-old">750 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Smart LED Strip Light', '499')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">📷</div>
+        <div class="product-info">
+          <div class="product-name">Mini Security Camera</div>
+          <div class="product-price"><span class="price-new">1,199 Kč</span><span class="price-old">1,800 Kč</span></div>
+          <button class="btn-cart" onclick="orderWA('Mini Security Camera', '1199')">💬 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="about" id="about">
+  <h2>🏔️ About Us</h2>
+  <p>Himalayan Store Praha is your trusted source for quality Asian products in the Czech Republic. We offer a wide range of clothing, footwear, accessories, and electronics at competitive prices. Our products are carefully selected to bring you the best value for your money.</p>
+  <p style="margin-top:16px; opacity:0.7;">📍 Praha, Czech Republic &nbsp;|&nbsp; 🇳🇵 Nepali Owned Business</p>
+</div>
+
+<!-- CONTACT -->
+
+<div class="contact" id="contact">
+  <h2>📞 Contact Us</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <h4>Address</h4>
+      <p>Praha, Czech Republic</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📱</div>
+      <h4>Phone / WhatsApp</h4>
+      <p>+420 720 559 443</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📘</div>
+      <h4>Facebook</h4>
+      <p>Himalayan Store Praha</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <h4>Email</h4>
+      <p>himalayanstorepraha@gmail.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2025 <span>Himalayan Store Praha</span> — All rights reserved | Made with ❤️ in Czech Republic</p>
+</footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+
+<a href="https://wa.me/420720559443" class="wa-float">💬 Order via WhatsApp</a>
+
+<script>
+function orderWA(name, price) {
+  var msg = "Hello Himalayan Store Praha!%0A%0AI want to order:%0AProduct: " + encodeURIComponent(name) + "%0APrice: " + price + " Kč%0A%0APlease confirm availability and delivery details.";
+  window.open("https://wa.me/420720559443?text=" + msg);
+}
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
