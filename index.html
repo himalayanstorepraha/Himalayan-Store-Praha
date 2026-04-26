@@ -683,6 +683,12 @@ footer span { color: var(--gold); }
 <footer>
   <p>© 2025 <span>Himalayan Store Praha</span> — All rights reserved | Made with ❤️ in Czech Republic</p>
 </footer>
+<script>
+function orderViaWhatsApp(productName, price) {
+  var message = "Hello! I want to order: " + productName + " - Price: " + price + " Kč";
+  window.open("https://wa.me/420720559443?text=" + encodeURIComponent(message));
+}
+</script>
 
 <script>
   function scrollTo(id) {
